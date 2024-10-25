@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devs.kz - User Story Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Background Logo -->
+    <div class="fixed inset-0 opacity-10 pointer-events-none">
+        <img src="gs://devsbot-a5afc.appspot.com/Devs.png" alt="Devs.kz Logo" class="w-full h-full object-contain">
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8 relative">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold mb-4">Dear dev,</h1>
+            <p class="text-lg">
+                My aim is to help you build any software product with better user requirements.
+                Your data is safely and securely stored in Google Cloud servers in accordance with GDPR policy.
+                Good luck.
+            </p>
+            <p class="text-sm mt-2">
+                If you have any inquiries feel free to reach out to 
+                <a href="mailto:hi@devs.kz" class="text-blue-600">hi@devs.kz</a>
+            </p>
+        </header>
+
+        <!-- Authentication Section -->
+        <div id="auth-section" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md mb-8">
+            <div id="unauthenticated-content">
+                <h2 class="text-xl font-bold mb-4">Please login to start working with devs.bot and see your output history</h2>
+                <button onclick="signInWithGoogle()" class="w-full bg-red-500 text-white py-2 rounded mb-4">
+                    Sign in with Google
+                </button>
+                <div class="text-center">
+                    <p class="text-sm">or</p>
+                </div>
+                <form id="login-form" class="mt-4">
+                    <input type="email" placeholder="Email" class="w-full p-2 border rounded mb-2">
+                    <input type="password" placeholder="Password" class="w-full p-2 border rounded mb-2">
+                    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Login</button>
+                    <button type="button" onclick="resetPassword()" class="text-sm text-blue-500 mt-2">
+                        Forgot Password?
+                    </button>
+                </form>
+            </div>
+
+            <div id="authenticated-content" class="hidden">
+                <h2 class="text-xl font-bold mb-4">Hi Devs, what will you be designing today?</h2>
+                <form id="user-story-form">
+                    <textarea 
+                        class="w-full p-2 border rounded mb-2" 
+                        rows="4"
+                        placeholder="As a user [text] I want to [text], so that [text]"
+                    ></textarea>
+                    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded">
+                        Analyze
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- User History Section -->
+        <div id="history-section" class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md hidden">
+            <h2 class="text-xl font-bold mb-4">Your History</h2>
+            <div id="history-content"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 text-sm text-gray-600">
+            <p>
+                Proudly made in the heart of Central Asia - Almaty city.<br>
+                2024 by Askar Aituov and Claude AI for KBTU.<br>
+                Copyright and trademark protected.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-storage.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
